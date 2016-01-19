@@ -3,6 +3,7 @@ require 'chronic'
 require 'date'
 # Find a third gem of your choice and add it to your project
 require 'terminal-table'
+require 'highline'
 
 require_relative "lib/listable"
 require_relative "lib/errors"
@@ -47,3 +48,50 @@ new_list.all
 # DEMO FILTER BY ITEM TYPE
 # ------------------------
 new_list.filter("event")
+
+
+#Actual Apps Starts Here
+
+def print_lists()
+  puts "Here are your lists"
+  UdaciList.all_lists.each {|list| puts list.title}
+  puts "\n"
+end
+
+
+def print_welcome()
+  puts "Welcome to UdaciList"
+end
+
+def print_help()
+  options = ["help", "add_list", "exit", "lists"]
+  puts "Possible inputs are: " + options.map{|option|"'"+option+"'"}.join(", ")
+end
+
+def input_loop()
+  answer = ""
+  cli = HighLine.new
+  while answer != 'exit'
+    case answer
+    when "help"
+      print_help
+    when "lists"
+      print_lists
+    when "add_list"
+      title = answer = cli.ask "What shall we name your list? "
+      UdaciList.new(title: title)
+    else
+      puts "#{answer} is an invalid input"
+    end
+    answer = cli.ask "Input:"
+  end
+end
+
+def start
+  print_welcome
+  print_lists
+  print_help
+  input_loop
+end
+
+start

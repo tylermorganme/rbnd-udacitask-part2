@@ -1,6 +1,6 @@
 class UdaciList
   attr_reader :title, :items
-
+  @@lists = []
   def initialize(options={})
     if options[:title] then
       @title = options[:title]
@@ -8,6 +8,7 @@ class UdaciList
       @title = "Untitled List"
     end
     @items = []
+    @@lists << self
   end
   def add(type, description, options={})
     type = type.downcase
@@ -55,5 +56,8 @@ class UdaciList
       :headings => ['#', 'Type', 'Name', 'Details'],
       :rows => rows
     puts table
+  end
+  def self.all_lists
+    @@lists
   end
 end

@@ -1,13 +1,29 @@
 # What you added to Udacitask 2.0
 # -------------------------------------------------------
 1. What is the gem of your choice and how did you use it?
+  The gem I chose to use was 'terminal-table'. I used it to format list.all
+  into a table format.
 2. Describe the 2 features you added to the project.
-  a) Feature 1...
-  b) Feature 2...
+  a) App Welcome: Allows a user to interact with application form the command line.
+  b) App Add_list: Allows a user to add an app from the command_line interface.
 
 # REFLECTIONS
 # -------------------------------------------------------
 1. How long did you spend working on this project?
+  4 Hours
 2. What was the most rewarding challenge you conquered?
+  Getting terminal to work was pretty cool. Actually getting to pull in
+  a gem, go to the docs, and get it to it work was pretty satisfying.
 3. What two additional features did you build? Why?
+  The changes I made were to the app an interface and create functionality for the
+  interface.
+  The first thing I did was add an interface for the app. It's basically a loop
+  that allows the user to input a number of different options to perform different
+  tasks until they decided to exit the program.
+  The second thing I did was implement a couple of simple functions into the app.
+  The first function that I added was the ability to print out the name of all of
+  the lists. The second function that I added was the ability for a user to create
+  a new list from the command line. This open up the possibility of future
+  functionality such as adding items to a list, modifying a list, etc.
 4. Where do you still have room to grow?
+  I still want to spend more time learning how to develop scalable apps.
