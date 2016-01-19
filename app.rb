@@ -2,6 +2,7 @@ require 'colorize'
 require 'chronic'
 require 'date'
 # Find a third gem of your choice and add it to your project
+require 'terminal-table'
 
 require_relative "lib/listable"
 require_relative "lib/errors"

@@ -8,8 +8,8 @@ class TodoItem
     @priority = options[:priority]
   end
   def details
-    format_description(@description) + "due: " +
+    [format_description(@description), "due: " +
     format_date(due: @due) +
-    format_priority(@priority)
+    format_priority(@priority)]
   end
 end
