@@ -36,10 +36,23 @@ class UdaciList
   def all
     rows = []
     @items.each_with_index do |item, position|
-      rows << [position + 1] + item.details
+      rows << [position + 1, item.class.name[0..-5]] + item.details
     end
     table = Terminal::Table.new :title => @title,
-      :headings => ['#', 'Name', 'Details'],
+      :headings => ['#', 'Type', 'Name', 'Details'],
+      :rows => rows
+    puts table
+  end
+  def filter(item_type)
+    rows = []
+    filteredItems = @items.find_all do |item|
+      item.class.name[0..-5].downcase == item_type
+    end
+    filteredItems.each_with_index do |item, position|
+      rows << [position + 1, item.class.name[0..-5]] + item.details
+    end
+    table = Terminal::Table.new :title => @title,
+      :headings => ['#', 'Type', 'Name', 'Details'],
       :rows => rows
     puts table
   end
