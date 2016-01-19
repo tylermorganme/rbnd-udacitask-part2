@@ -18,11 +18,16 @@ module Listable
     return dates
   end
 
-  def format_priority()
-    value = " ⇧" if @priority == "high"
-    value = " ⇨" if @priority == "medium"
-    value = " ⇩" if @priority == "low"
-    value = "" if !@priority
+  def format_priority(priority)
+    case priority
+    when "high"
+      value = " ⇧".colorize(:green)
+    when "medium"
+      value = " ⇨".colorize(:yellow)
+    when "low"
+      value = " ⇩".colorize(:white)
+    else value = "" if !priority
+    end
     return value
   end
 end
