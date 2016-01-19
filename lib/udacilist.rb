@@ -20,10 +20,18 @@ class UdaciList
       @items.push LinkItem.new(description, options)
     else
       # This is where the error handler will go
+      raise UdaciListErrors::InvalidItemType, "#{type} is not a valid item type"
     end
   end
   def delete(index)
-    @items.delete_at(index - 1)
+    maxValidIndex = @items.length
+    if index > maxValidIndex then
+      raise UdaciListErrors::IndexExceedsListSize,
+        "#{index} is not a valid index, must be #{maxValidIndex} or lower"
+    else
+      @items.delete_at(index - 1)
+    end
+
   end
   def all
     rows = []
